@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 import ThemeContext from '../../context/ThemeContext'
 
 import {
@@ -51,15 +52,21 @@ class Login extends Component {
 
     const apiCall = await fetch(url, options)
     const response = await apiCall.json()
-    console.log(response)
+
     if (apiCall.ok) {
-      Cookies.set('jwt_token', response.jwt_token)
+      Cookies.set('jwt_token', response.jwt_token, {expires: 30, path: '/'})
+      const {history} = this.props
+      history.replace('/')
     } else {
       this.setState({showError: true, errorMsg: response.error_msg})
     }
   }
 
   render() {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <ThemeContext.Consumer>
         {value => {
@@ -78,7 +85,7 @@ class Login extends Component {
           return (
             <LoginContainer bgColor={darkTheme}>
               <LoginCard bgColor={darkTheme}>
-                <CompanyLogo src={Logo} alt="logo" />
+                <CompanyLogo src={Logo} alt="nxt watch logo" />
                 <InputControlWrapper textColor={darkTheme}>
                   <InputLabel htmlFor="username" textColor={darkTheme}>
                     USERNAME
