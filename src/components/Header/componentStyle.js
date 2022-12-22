@@ -68,6 +68,12 @@ export const MobileNavMenuContainer = styled.ul`
   flex-direction: column;
   justify-content: center;
   padding-left: 0px;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    padding: 0px;
+    margin: 0px;
+  }
 `
 
 export const StyledLink = styled(Link)`
@@ -90,6 +96,11 @@ export const MobileNavItem = styled.li`
   align-items: center;
   width: 100%;
   justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
 `
 
 export const MobileNavButton = styled.div`
@@ -118,6 +129,10 @@ export const MobileNavItemText = styled.p`
   font-family: 'Roboto';
   font-size: 20px;
   margin-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 `
 export const ThemeButton = styled.button`
   width: 100%;
