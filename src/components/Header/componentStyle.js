@@ -8,7 +8,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${props => (props.bgColor ? '#181818' : '#f9f9f9')};
+  background-color: ${props => (props.bgColor ? '#212121' : '#f9f9f9')};
   box-sizing: border-box;
 `
 

@@ -1,10 +1,12 @@
 import './App.css'
 import {Component} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import ThemeContext from './context/ThemeContext'
 import Login from './components/Login'
 import Home from './components/Home'
+import NotFound from './components/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
+import Trending from './components/Trending'
 
 // Replace your code here
 class App extends Component {
@@ -24,6 +26,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/login" component={Login} />
           <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute exact path="/trending" component={Trending} />
+          <ProtectedRoute exact path="/not-found" component={NotFound} />
+          <Redirect to="/not-found" />
         </Switch>
       </ThemeContext.Provider>
     )

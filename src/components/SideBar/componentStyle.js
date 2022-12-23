@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const SideBarContainer = styled.div`
   width: 20vw;
   min-height: 86vh;
-  background-color: ${props => (props.bgColor ? '#181818' : '#f9f9f9')};
+  background-color: ${props => (props.bgColor ? '#212121' : '#f9f9f9')};
   margin: 0px;
   padding: 0px;
   display: flex;
