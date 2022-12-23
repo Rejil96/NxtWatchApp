@@ -135,3 +135,73 @@ export const VideosWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
+
+export const LoaderContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+export const FailureContainer = styled.div`
+  width: 100%;
+  height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    height: 100vh;
+  }
+`
+export const FailureImage = styled.img`
+  width: 60%;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 40%;
+  }
+`
+
+export const FailureHeading = styled.h1`
+  font-family: 'Roboto';
+  font-size: 22px;
+  color: ${props => (props.textColor ? '#f8fafc' : '#1e293b')};
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+  }
+`
+
+export const FailureDescription = styled.p`
+  font-family: 'Roboto';
+  font-size: 16px;
+  text-align: center;
+  color: #475569;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+`
+export const RetryButton = styled.button`
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-family: 'Roboto';
+  cursor: pointer;
+  color: #f8fafc;
+  background-color: #4f46e5;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 120px;
+  }
+`
