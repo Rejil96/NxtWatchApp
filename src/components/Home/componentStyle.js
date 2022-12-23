@@ -11,17 +11,19 @@ export const HomeInnerWrapper = styled.div`
   overflow-x: hidden;
 `
 export const HomeContentWrapper = styled.div`
-  width: 80vw;
-  padding: 0px 20px;
+  width: 100%;
+
   overflow-y: auto;
-  @media screen and (max-width: 768px) {
-    width: 100vw;
+  @media screen and (min-width: 768px) {
+    width: 80%;
   }
 `
 export const SearchBoxContainer = styled.div`
   width: 100%;
   display: flex;
   border: 1px solid #909090;
+  margin: 20px 0px;
+  background-color: transparent;
 
   @media screen and (min-width: 576px) {
     width: 80%;
@@ -41,6 +43,7 @@ export const SearchInput = styled.input`
   height: 40px;
   outline: none;
   border: none;
+  background-color: transparent;
   padding-left: 20px;
 `
 export const SearchBoxButton = styled.button`
@@ -48,15 +51,19 @@ export const SearchBoxButton = styled.button`
   height: 40px;
   border: none;
   border-left: 1px solid #909090;
+  color: #909090;
   display: flex;
   font-size: 22px;
   justify-content: center;
+  cursor: pointer;
   align-items: center;
+  background-color: ${props => (props.bgColor ? '#313131' : '#ebebeb')};
 `
 export const PremiumBannerContainer = styled.div`
   width: 100%;
   height: 36vh;
   margin-bottom: 20px;
+  padding: 20px;
   display: flex;
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
   background-size: cover;
@@ -115,5 +122,16 @@ export const BannerCloseButton = styled.button`
   cursor: pointer;
   align-self: flex-end;
   font-size: 24px;
-  margin: 0px 20px;
+`
+export const HomeVideosContentWrapper = styled.div`
+  width: 100%;
+  height: 46vh;
+  padding: 0px 20px;
+`
+
+export const VideosWrapper = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
 `

@@ -69,7 +69,9 @@ const Header = props => {
 
         return (
           <HeaderContainer bgColor={darkTheme}>
-            <HeaderLogo src={logo} alt="nxt watch logo" />
+            <StyledLink to="/">
+              <HeaderLogo src={logo} alt="nxt watch logo" />
+            </StyledLink>
             <NavBar>
               <NavItem>
                 <ThemeButton
