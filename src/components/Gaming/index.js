@@ -2,19 +2,20 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import {HiFire} from 'react-icons/hi'
+import {SiYoutubegaming} from 'react-icons/si'
 import ThemeContext from '../../context/ThemeContext'
 import Header from '../Header'
 import SideBar from '../SideBar'
-import TrendingVideoCard from '../TrendingVideoCard'
+import GamingVideoCard from '../GamingVideoCard'
 
 import {
-  TrendingContainer,
-  TrendingInnerWrapper,
-  TrendingContentWrapper,
-  TrendingHeader,
-  TrendingHeading,
-  TrendingIconContainer,
-  TrendingVideosWrapper,
+  GamingContainer,
+  GamingInnerWrapper,
+  GamingContentWrapper,
+  GamingHeader,
+  GamingHeading,
+  GamingIconContainer,
+  GamingVideosWrapper,
   LoaderContainer,
 } from './componentStyle'
 
@@ -32,16 +33,16 @@ const LoadingState = {
   success: 'SUCCESS',
 }
 
-class Trending extends Component {
-  state = {trendingVideosList: [], isLoad: LoadingState.initial}
+class Gaming extends Component {
+  state = {gamingVideosList: [], isLoad: LoadingState.initial}
 
   componentDidMount() {
-    this.fetchTrendingVideos()
+    this.fetchGamingVideos()
   }
 
-  fetchTrendingVideos = async () => {
+  fetchGamingVideos = async () => {
     const jwtToken = Cookies.get('jwt_token')
-    const url = 'https://apis.ccbp.in/videos/trending'
+    const url = 'https://apis.ccbp.in/videos/gaming'
     const options = {
       method: 'GET',
       headers: {
@@ -50,24 +51,19 @@ class Trending extends Component {
     }
     const fetchData = await fetch(url, options)
     const response = await fetchData.json()
-
+    console.log(response)
     if (fetchData.ok) {
       const {videos} = response
 
-      const updatedTrendingVideosList = videos.map(eachData => ({
+      const updatedGamingVideosList = videos.map(eachData => ({
         id: eachData.id,
-        channel: {
-          name: eachData.channel.name,
-          profileImageUrl: eachData.channel.profile_image_url,
-        },
-        publishedAt: eachData.published_at,
         thumbnailUrl: eachData.thumbnail_url,
         title: eachData.title,
         viewCount: eachData.view_count,
       }))
 
       this.setState({
-        trendingVideosList: updatedTrendingVideosList,
+        gamingVideosList: updatedGamingVideosList,
         isLoad: LoadingState.success,
       })
     } else {
@@ -82,7 +78,8 @@ class Trending extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {darkTheme} = value
-          const {trendingVideosList, isLoad} = this.state
+          const {gamingVideosList, isLoad} = this.state
+
           const loadingView = () => (
             <LoaderContainer className="loader-container" data-testid="loader">
               <Loader
@@ -116,19 +113,17 @@ class Trending extends Component {
 
           const successView = () => (
             <>
-              <TrendingHeader bgColor={darkTheme}>
-                <TrendingIconContainer bgColor={darkTheme}>
-                  <HiFire />
-                </TrendingIconContainer>
-                <TrendingHeading textColor={darkTheme}>
-                  Trending
-                </TrendingHeading>
-              </TrendingHeader>
-              <TrendingVideosWrapper>
-                {trendingVideosList.map(eachData => (
-                  <TrendingVideoCard key={eachData.id} videoData={eachData} />
+              <GamingHeader bgColor={darkTheme}>
+                <GamingIconContainer bgColor={darkTheme}>
+                  <SiYoutubegaming />
+                </GamingIconContainer>
+                <GamingHeading textColor={darkTheme}>Gaming</GamingHeading>
+              </GamingHeader>
+              <GamingVideosWrapper>
+                {gamingVideosList.map(eachData => (
+                  <GamingVideoCard key={eachData.id} allVideosList={eachData} />
                 ))}
-              </TrendingVideosWrapper>
+              </GamingVideosWrapper>
             </>
           )
 
@@ -146,15 +141,15 @@ class Trending extends Component {
           }
 
           return (
-            <TrendingContainer bgColor={darkTheme}>
+            <GamingContainer bgColor={darkTheme}>
               <Header />
-              <TrendingInnerWrapper>
+              <GamingInnerWrapper>
                 <SideBar />
-                <TrendingContentWrapper>
+                <GamingContentWrapper>
                   {renderBasedOnStatus()}
-                </TrendingContentWrapper>
-              </TrendingInnerWrapper>
-            </TrendingContainer>
+                </GamingContentWrapper>
+              </GamingInnerWrapper>
+            </GamingContainer>
           )
         }}
       </ThemeContext.Consumer>
@@ -162,4 +157,4 @@ class Trending extends Component {
   }
 }
 
-export default Trending
+export default Gaming

@@ -138,22 +138,26 @@ export const VideosWrapper = styled.div`
 
 export const LoaderContainer = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    min-height: 30vh;
+  }
 `
 export const FailureContainer = styled.div`
   width: 100%;
-  height: 70vh;
-
+  height: 100vh;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    height: 100vh;
+    min-height: 100vh;
   }
 `
 export const FailureImage = styled.img`
