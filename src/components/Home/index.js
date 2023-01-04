@@ -100,6 +100,10 @@ class Home extends Component {
     this.setState({searchText: event.target.value})
   }
 
+  onRetry = () => {
+    this.fetchAllVideos()
+  }
+
   onClickSearch = () => {
     this.fetchAllVideos()
   }
@@ -150,7 +154,9 @@ class Home extends Component {
                   We are having some trouble to complete your request. Please
                   try again
                 </FailureDescription>
-                <RetryButton type="button">Retry</RetryButton>
+                <RetryButton type="button" onClick={this.onRetry}>
+                  Retry
+                </RetryButton>
               </FailureContainer>
             )
           }

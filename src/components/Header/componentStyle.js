@@ -181,3 +181,55 @@ export const LogoutButton = styled.button`
     display: none;
   }
 `
+export const CancelButton = styled.button`
+  background-color: transparent;
+  border: 1px solid #909090;
+  width: 80px;
+  cursor: pointer;
+  height: 35px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #909090;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Roboto',
+  cursor: pointer;
+  outline: none;
+`
+export const LogoutPopupContent = styled.div`
+  border-radius: 10px;
+  padding: 30px 20px;
+  background-color: ${props => (props.bgColor ? '#212121' : '#f9f9f9')};
+  @media screen and (min-width: 768px) {
+    padding: 40px;
+  }
+`
+
+export const PopupQuestion = styled.p`
+  color: ${props => (props.textColor ? '#f9f9f9' : '#00306e')};
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: 'Roboto';
+
+  @media screen and (min-width: 768px) {
+    padding: 40px;
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+`
+export const PopupLogoutButton = styled(CancelButton)`
+  background-color: #3b82f6;
+  border: 1px solid #3b82f6;
+  color: #f9f9f9;
+  margin-left: 20px;
+`
+
+export const PopupButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`

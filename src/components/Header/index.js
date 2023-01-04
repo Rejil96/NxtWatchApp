@@ -1,6 +1,7 @@
 import {withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 // React Popup
+import 'reactjs-popup/dist/index.css'
 import Popup from 'reactjs-popup'
 
 // React Icons
@@ -36,6 +37,11 @@ import {
   MobileNavItemText,
   MobileNavButton,
   StyledLink,
+  CancelButton,
+  LogoutPopupContent,
+  PopupQuestion,
+  PopupLogoutButton,
+  PopupButtonWrapper,
 } from './componentStyle'
 
 const Header = props => {
@@ -65,6 +71,63 @@ const Header = props => {
 
         const onChangeTheme = () => {
           onUpdateTheme()
+        }
+
+        const onLogoutPopup = version => {
+          const renderBasedOnVersion =
+            version === 'mobile' ? (
+              <MobileLogoutButton
+                type="button"
+                textColor={darkTheme}
+                onClick={onLogout}
+              >
+                <FiLogOut />
+              </MobileLogoutButton>
+            ) : (
+              <LogoutButton type="button" textColor={darkTheme}>
+                Logout
+              </LogoutButton>
+            )
+
+          return (
+            <Popup
+              trigger={renderBasedOnVersion}
+              modal
+              contentStyle={{
+                border: '0px solid transparent',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '50vw',
+                height: '30vh',
+                backgroundColor: 'transparent',
+              }}
+              nested
+            >
+              {close => (
+                <LogoutPopupContent className="modal" bgColor={darkTheme}>
+                  <PopupQuestion textColor={darkTheme}>
+                    Are you sure want to logout ?
+                  </PopupQuestion>
+                  <PopupButtonWrapper>
+                    <CancelButton
+                      className="button"
+                      onClick={() => {
+                        console.log('modal closed ')
+                        close()
+                      }}
+                    >
+                      Close
+                    </CancelButton>
+                    <PopupLogoutButton onClick={onLogout}>
+                      Confirm
+                    </PopupLogoutButton>
+                  </PopupButtonWrapper>
+                </LogoutPopupContent>
+              )}
+            </Popup>
+          )
         }
 
         return (
@@ -175,20 +238,8 @@ const Header = props => {
                 </ProfileButton>
               </NavItem>
               <NavItem textColor={darkTheme}>
-                <MobileLogoutButton
-                  type="button"
-                  textColor={darkTheme}
-                  onClick={onLogout}
-                >
-                  <FiLogOut />
-                </MobileLogoutButton>
-                <LogoutButton
-                  type="button"
-                  textColor={darkTheme}
-                  onClick={onLogout}
-                >
-                  Logout
-                </LogoutButton>
+                {onLogoutPopup('desktop')}
+                {onLogoutPopup('mobile')}
               </NavItem>
             </NavBar>
           </HeaderContainer>
