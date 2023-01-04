@@ -13,6 +13,7 @@ import {
   VideoStatusContainer,
   ChannelName,
   VideoStatusFirst,
+  StyledLink,
 } from './componentStyle'
 
 const HomeVideoCard = props => (
@@ -35,20 +36,22 @@ const HomeVideoCard = props => (
 
       return (
         <VideoCardContainer>
-          <VideoThumbnail src={thumbnailUrl} alt="videos" />
-          <VideoInfoContainer>
-            <ChannelLogo src={profileImageUrl} alt="channel image" />
-            <ChannelDescriptionContainer>
-              <VideoName textColor={darkTheme}>{title}</VideoName>
-              <VideoStatusContainer>
-                <ChannelName>{name}</ChannelName>
-                <VideoStatusWrapper>
-                  <VideoStatusFirst>{`${viewCount} `}views</VideoStatusFirst>
-                  <VideoStatus>{`${dateString} `} ago</VideoStatus>
-                </VideoStatusWrapper>
-              </VideoStatusContainer>
-            </ChannelDescriptionContainer>
-          </VideoInfoContainer>
+          <StyledLink to={`/videos/${id}`}>
+            <VideoThumbnail src={thumbnailUrl} alt="videos" />
+            <VideoInfoContainer>
+              <ChannelLogo src={profileImageUrl} alt="channel image" />
+              <ChannelDescriptionContainer>
+                <VideoName textColor={darkTheme}>{title}</VideoName>
+                <VideoStatusContainer>
+                  <ChannelName>{name}</ChannelName>
+                  <VideoStatusWrapper>
+                    <VideoStatusFirst>{`${viewCount} `}views</VideoStatusFirst>
+                    <VideoStatus>{`${dateString} `} ago</VideoStatus>
+                  </VideoStatusWrapper>
+                </VideoStatusContainer>
+              </ChannelDescriptionContainer>
+            </VideoInfoContainer>
+          </StyledLink>
         </VideoCardContainer>
       )
     }}

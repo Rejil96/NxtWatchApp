@@ -115,7 +115,7 @@ class Home extends Component {
             searchText,
             loadStatus,
           } = this.state
-          console.log(loadStatus)
+
           const loadingView = () => (
             <LoaderContainer className="loader-container" data-testid="loader">
               <Loader

@@ -1,4 +1,3 @@
-import {formatDistanceToNow} from 'date-fns'
 import ThemeContext from '../../context/ThemeContext'
 
 import {
@@ -8,6 +7,7 @@ import {
   ChannelDescriptionContainer,
   VideoName,
   VideoStatus,
+  StyledLink,
 } from './componentStyle'
 
 const GamingVideoCard = props => (
@@ -19,13 +19,15 @@ const GamingVideoCard = props => (
 
       return (
         <VideoCardContainer>
-          <VideoThumbnail src={thumbnailUrl} alt="videos" />
-          <VideoInfoContainer>
-            <ChannelDescriptionContainer>
-              <VideoName textColor={darkTheme}>{title}</VideoName>
-              <VideoStatus> {`${viewCount}K `}Watching Worldwide</VideoStatus>
-            </ChannelDescriptionContainer>
-          </VideoInfoContainer>
+          <StyledLink to={`/videos/${id}`}>
+            <VideoThumbnail src={thumbnailUrl} alt="videos" />
+            <VideoInfoContainer>
+              <ChannelDescriptionContainer>
+                <VideoName textColor={darkTheme}>{title}</VideoName>
+                <VideoStatus> {`${viewCount}K `}Watching Worldwide</VideoStatus>
+              </ChannelDescriptionContainer>
+            </VideoInfoContainer>
+          </StyledLink>
         </VideoCardContainer>
       )
     }}

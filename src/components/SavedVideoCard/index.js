@@ -16,7 +16,7 @@ import {
   StyledLink,
 } from './componentStyle'
 
-const TrendingVideoCard = props => (
+const SavedVideoCard = props => (
   <ThemeContext.Consumer>
     {value => {
       const {darkTheme} = value
@@ -30,7 +30,7 @@ const TrendingVideoCard = props => (
         viewCount,
       } = videoData
       const {name, profileImageUrl} = channel
-      console.log(publishedAt)
+
       const dateText = formatDistanceToNow(new Date(publishedAt))
       const dateArray = dateText.split(' ').slice(1, 3)
       const dateString = dateArray.join(' ')
@@ -59,4 +59,4 @@ const TrendingVideoCard = props => (
   </ThemeContext.Consumer>
 )
 
-export default TrendingVideoCard
+export default SavedVideoCard

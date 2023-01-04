@@ -1,7 +1,6 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
-import {HiFire} from 'react-icons/hi'
 import {SiYoutubegaming} from 'react-icons/si'
 import ThemeContext from '../../context/ThemeContext'
 import Header from '../Header'
@@ -51,7 +50,7 @@ class Gaming extends Component {
     }
     const fetchData = await fetch(url, options)
     const response = await fetchData.json()
-    console.log(response)
+
     if (fetchData.ok) {
       const {videos} = response
 
