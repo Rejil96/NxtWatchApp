@@ -146,9 +146,20 @@ export const ThemeButton = styled.button`
   padding: 0px;
   color: ${props => (props.textColor ? '#f9f9f9' : '#0f0f0f')};
 `
-export const MobileLogoutButton = styled(ThemeButton)`
+export const LogoutButton = styled(ThemeButton)`
   @media screen and (min-width: 768px) {
-    display: none;
+    width: 80px;
+    height: 28px;
+    border-radius: 2px;
+    background-color: transparent;
+    border: 1px solid ${props => (props.textColor ? '#f9f9f9' : '#3b82f6')};
+    color: ${props => (props.textColor ? '#f9f9f9' : '#3b82f6')};
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    margin-left: 10px;
+    margin-bottom: 5px;
   }
 `
 export const ProfileButton = styled(ThemeButton)`
@@ -163,24 +174,7 @@ export const ProfileImg = styled.img`
   margin: 0px;
   padding: 0px;
 `
-export const LogoutButton = styled.button`
-  width: 80px;
-  height: 28px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 1px solid ${props => (props.textColor ? '#f9f9f9' : '#3b82f6')};
-  color: ${props => (props.textColor ? '#f9f9f9' : '#3b82f6')};
-  cursor: pointer;
-  font-size: 14px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  margin-left: 10px;
-  margin-bottom: 5px;
 
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`
 export const CancelButton = styled.button`
   background-color: transparent;
   border: 1px solid #909090;
@@ -232,4 +226,14 @@ export const PopupLogoutButton = styled(CancelButton)`
 export const PopupButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
+`
+export const LogoutIconWrapper = styled.div`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`
+export const LogoutTextWrapper = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `

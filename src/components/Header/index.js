@@ -26,7 +26,6 @@ import {
   NavItem,
   ThemeButton,
   HamburgButton,
-  MobileLogoutButton,
   LogoutButton,
   ProfileButton,
   ProfileImg,
@@ -42,6 +41,8 @@ import {
   PopupQuestion,
   PopupLogoutButton,
   PopupButtonWrapper,
+  LogoutIconWrapper,
+  LogoutTextWrapper,
 } from './componentStyle'
 
 const Header = props => {
@@ -73,67 +74,57 @@ const Header = props => {
           onUpdateTheme()
         }
 
-        const onLogoutPopup = version => {
-          const renderBasedOnVersion =
-            version === 'mobile' ? (
-              <MobileLogoutButton
-                type="button"
-                textColor={darkTheme}
-                onClick={onLogout}
-              >
-                <FiLogOut />
-              </MobileLogoutButton>
-            ) : (
+        const onLogoutPopup = () => (
+          <Popup
+            trigger={
               <LogoutButton type="button" textColor={darkTheme}>
-                Logout
+                <LogoutIconWrapper>
+                  <FiLogOut />
+                </LogoutIconWrapper>
+                <LogoutTextWrapper>Logout</LogoutTextWrapper>
               </LogoutButton>
-            )
-
-          return (
-            <Popup
-              trigger={renderBasedOnVersion}
-              modal
-              contentStyle={{
-                border: '0px solid transparent',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '50vw',
-                height: '30vh',
-                backgroundColor: 'transparent',
-              }}
-              nested
-            >
-              {close => (
-                <LogoutPopupContent className="modal" bgColor={darkTheme}>
-                  <PopupQuestion textColor={darkTheme}>
-                    Are you sure want to logout ?
-                  </PopupQuestion>
-                  <PopupButtonWrapper>
-                    <CancelButton
-                      className="button"
-                      onClick={() => {
-                        console.log('modal closed ')
-                        close()
-                      }}
-                    >
-                      Close
-                    </CancelButton>
-                    <PopupLogoutButton onClick={onLogout}>
-                      Confirm
-                    </PopupLogoutButton>
-                  </PopupButtonWrapper>
-                </LogoutPopupContent>
-              )}
-            </Popup>
-          )
-        }
+            }
+            modal
+            contentStyle={{
+              border: '0px solid transparent',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '50vw',
+              height: '30vh',
+              backgroundColor: 'transparent',
+            }}
+            nested
+          >
+            {close => (
+              <LogoutPopupContent className="modal" bgColor={darkTheme}>
+                <PopupQuestion textColor={darkTheme}>
+                  Are you sure want to logout ?
+                </PopupQuestion>
+                <PopupButtonWrapper>
+                  <CancelButton
+                    className="button"
+                    onClick={() => {
+                      console.log('modal closed ')
+                      close()
+                    }}
+                  >
+                    Close
+                  </CancelButton>
+                  <PopupLogoutButton onClick={onLogout}>
+                    Confirm
+                  </PopupLogoutButton>
+                </PopupButtonWrapper>
+              </LogoutPopupContent>
+            )}
+          </Popup>
+        )
 
         return (
           <HeaderContainer bgColor={darkTheme}>
             <StyledLink to="/">
-              <HeaderLogo src={logo} alt="nxt watch logo" />
+              <HeaderLogo src={logo} alt="website logo" />
             </StyledLink>
             <NavBar>
               <NavItem>
@@ -237,10 +228,7 @@ const Header = props => {
                   />
                 </ProfileButton>
               </NavItem>
-              <NavItem textColor={darkTheme}>
-                {onLogoutPopup('desktop')}
-                {onLogoutPopup('mobile')}
-              </NavItem>
+              <NavItem textColor={darkTheme}>{onLogoutPopup()}</NavItem>
             </NavBar>
           </HeaderContainer>
         )
