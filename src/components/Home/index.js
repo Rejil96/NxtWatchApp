@@ -146,7 +146,7 @@ class Home extends Component {
 
             return (
               <FailureContainer>
-                <FailureImage src={failureImage} alt="failure" />
+                <FailureImage src={failureImage} alt="failure view" />
                 <FailureHeading textColor={darkTheme}>
                   Oops! Something Went Wrong
                 </FailureHeading>
@@ -165,7 +165,7 @@ class Home extends Component {
             <FailureContainer>
               <FailureImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
-                alt="failure"
+                alt="no videos"
               />
               <FailureHeading textColor={darkTheme}>
                 No Search result found
@@ -197,11 +197,14 @@ class Home extends Component {
               <Header />
               <HomeInnerWrapper>
                 <SideBar />
-                <HomeContentWrapper>
+                <HomeContentWrapper data-testid="home">
                   {showPremiumBanner && (
-                    <PremiumBannerContainer>
+                    <PremiumBannerContainer data-testid="banner">
                       <BannerInnerWrapperContent>
-                        <BannerLogo src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png" />
+                        <BannerLogo
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                          alt="nxt watch logo"
+                        />
                         <BannerText>
                           Buy Nxt Watch Premium prepaid plans with UPI
                         </BannerText>
@@ -211,6 +214,7 @@ class Home extends Component {
                         <BannerCloseButton
                           type="button"
                           onClick={this.onBannerClose}
+                          data-testid="close"
                         >
                           <IoCloseSharp />
                         </BannerCloseButton>
@@ -220,7 +224,7 @@ class Home extends Component {
                   <HomeVideosContentWrapper>
                     <SearchBoxContainer>
                       <SearchInput
-                        type="text"
+                        type="search"
                         placeholder="Search"
                         value={searchText}
                         onChange={this.onSearch}

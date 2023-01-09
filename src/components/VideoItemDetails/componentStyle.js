@@ -78,7 +78,7 @@ export const VideoLikeButton = styled.button`
   align-items: center;
   margin-right: 30px;
   background-color: transparent;
-  color: ${props => (props.likeStatus ? '#4f46e5' : '#616e7c')};
+  color: ${props => (props.likeStatus ? '#2563eb' : '#616e7c')};
   padding: 0px;
   border: none;
   cursor: pointer;
@@ -116,7 +116,7 @@ export const ChannelLogoWrapper = styled.div`
   flex-direction: column;
   padding-left: 20px;
 `
-export const ChannelNameText = styled.div`
+export const ChannelNameText = styled.p`
   color: ${props => (props.textColor ? '#f8fafc' : '#424242')};
   font-size: 14px;
   font-weight: 500;

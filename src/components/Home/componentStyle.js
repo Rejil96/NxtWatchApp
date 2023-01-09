@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const HomeContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${props => (props.bgColor ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.bgColor ? '#181818' : '#f9f9f9')};
 `
 
 export const HomeInnerWrapper = styled.div`

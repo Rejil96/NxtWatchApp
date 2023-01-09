@@ -39,6 +39,10 @@ class Gaming extends Component {
     this.fetchGamingVideos()
   }
 
+  onRetry = () => {
+    this.fetchGamingVideos()
+  }
+
   fetchGamingVideos = async () => {
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/videos/gaming'
@@ -97,7 +101,7 @@ class Gaming extends Component {
 
             return (
               <FailureContainer>
-                <FailureImage src={failureImage} alt="failure" />
+                <FailureImage src={failureImage} alt="failure view" />
                 <FailureHeading textColor={darkTheme}>
                   Oops! Something Went Wrong
                 </FailureHeading>
@@ -105,7 +109,9 @@ class Gaming extends Component {
                   We are having some trouble to complete your request. Please
                   try again
                 </FailureDescription>
-                <RetryButton type="button">Retry</RetryButton>
+                <RetryButton type="button" onClick={this.onRetry}>
+                  Retry
+                </RetryButton>
               </FailureContainer>
             )
           }
@@ -144,7 +150,7 @@ class Gaming extends Component {
               <Header />
               <GamingInnerWrapper>
                 <SideBar />
-                <GamingContentWrapper>
+                <GamingContentWrapper data-testid="gaming">
                   {renderBasedOnStatus()}
                 </GamingContentWrapper>
               </GamingInnerWrapper>

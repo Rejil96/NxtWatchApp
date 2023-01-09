@@ -25,7 +25,7 @@ export const NotFoundBanner = styled.img`
     width: 40%;
   }
 `
-export const NotFoundHeading = styled.p`
+export const NotFoundHeading = styled.h1`
   font-size: 24px;
   font-family: 'Roboto';
   font-weight: 600;

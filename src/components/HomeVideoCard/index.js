@@ -37,9 +37,9 @@ const HomeVideoCard = props => (
       return (
         <VideoCardContainer>
           <StyledLink to={`/videos/${id}`}>
-            <VideoThumbnail src={thumbnailUrl} alt="videos" />
+            <VideoThumbnail src={thumbnailUrl} alt="video thumbnail" />
             <VideoInfoContainer>
-              <ChannelLogo src={profileImageUrl} alt="channel image" />
+              <ChannelLogo src={profileImageUrl} alt="channel logo" />
               <ChannelDescriptionContainer>
                 <VideoName textColor={darkTheme}>{title}</VideoName>
                 <VideoStatusContainer>

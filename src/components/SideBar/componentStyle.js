@@ -18,7 +18,7 @@ export const SideBarContainer = styled.div`
 export const ContactUsContainer = styled.div`
   width: 100%;
 `
-export const ContactHeading = styled.h1`
+export const ContactHeading = styled.p`
   color: #231f20;
   font-size: 20px;
   font-weight: 500;

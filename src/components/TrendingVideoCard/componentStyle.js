@@ -80,7 +80,7 @@ export const VideoStatusWrapper = styled.ul`
   }
 `
 
-export const VideoStatus = styled.li`
+export const VideoStatus = styled.p`
   font-size: 14px;
 
   font-family: 'Roboto';

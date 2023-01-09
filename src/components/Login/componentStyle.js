@@ -10,7 +10,7 @@ export const LoginContainer = styled.div`
   font-family: 'Roboto';
 `
 
-export const LoginCard = styled.div`
+export const LoginCard = styled.form`
   width: 90vw;
   padding: 60px 20px;
   background-color: ${props => (props.bgColor ? '#0f0f0f' : '#f8fafc')};
@@ -92,7 +92,7 @@ export const LoginButton = styled.button`
   border: none;
   cursor: pointer;
   background-color: #3b82f6;
-  color: #f9f9f9;
+  color: #ffffff;
   font-weight: 600;
   margin-top: 20px;
 `

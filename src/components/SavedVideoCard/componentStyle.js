@@ -17,7 +17,7 @@ export const VideoCardContainer = styled.div`
 export const VideoThumbnail = styled.img`
   width: 100%;
   @media screen and (min-width: 768px) {
-    width: 50%;
+    width: 30%;
   }
 `
 export const VideoInfoContainer = styled.div`
@@ -80,7 +80,7 @@ export const VideoStatusWrapper = styled.ul`
   }
 `
 
-export const VideoStatus = styled.li`
+export const VideoStatus = styled.p`
   font-size: 14px;
 
   font-family: 'Roboto';
@@ -90,7 +90,13 @@ export const VideoStatus = styled.li`
   @media screen and (min-width: 768px) {
   }
 `
-export const VideoStatusFirst = styled(VideoStatus)`
+export const VideoStatusFirst = styled.p`
+  font-size: 14px;
+
+  font-family: 'Roboto';
+  color: #616e7c;
+  margin: 0px 30px 0px 0px;
+  padding: 0px;
   @media screen and (min-width: 768px) {
     list-style: none;
   }

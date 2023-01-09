@@ -39,6 +39,10 @@ class Trending extends Component {
     this.fetchTrendingVideos()
   }
 
+  onRetry = () => {
+    this.fetchTrendingVideos()
+  }
+
   fetchTrendingVideos = async () => {
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/videos/trending'
@@ -101,7 +105,7 @@ class Trending extends Component {
 
             return (
               <FailureContainer>
-                <FailureImage src={failureImage} alt="failure" />
+                <FailureImage src={failureImage} alt="failure view" />
                 <FailureHeading textColor={darkTheme}>
                   Oops! Something Went Wrong
                 </FailureHeading>
@@ -109,7 +113,9 @@ class Trending extends Component {
                   We are having some trouble to complete your request. Please
                   try again
                 </FailureDescription>
-                <RetryButton type="button">Retry</RetryButton>
+                <RetryButton type="button" onClick={this.onRetry}>
+                  Retry
+                </RetryButton>
               </FailureContainer>
             )
           }
@@ -150,7 +156,7 @@ class Trending extends Component {
               <Header />
               <TrendingInnerWrapper>
                 <SideBar />
-                <TrendingContentWrapper>
+                <TrendingContentWrapper data-testid="trending">
                   {renderBasedOnStatus()}
                 </TrendingContentWrapper>
               </TrendingInnerWrapper>

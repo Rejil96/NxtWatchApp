@@ -38,7 +38,7 @@ const SavedVideoCard = props => (
       return (
         <StyledLink to={`videos/${id}`}>
           <VideoCardContainer>
-            <VideoThumbnail src={thumbnailUrl} alt="videos" />
+            <VideoThumbnail src={thumbnailUrl} alt="video thumbnail" />
             <VideoInfoContainer>
               <ChannelLogo src={profileImageUrl} alt="channel image" />
               <ChannelDescriptionContainer>

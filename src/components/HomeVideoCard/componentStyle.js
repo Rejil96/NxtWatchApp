@@ -73,7 +73,7 @@ export const VideoStatusWrapper = styled.ul`
   }
 `
 
-export const VideoStatus = styled.li`
+export const VideoStatus = styled.p`
   font-size: 14px;
 
   font-family: 'Roboto';
@@ -84,7 +84,13 @@ export const VideoStatus = styled.li`
     margin: 0px;
   }
 `
-export const VideoStatusFirst = styled(VideoStatus)`
+export const VideoStatusFirst = styled.p`
+  font-size: 14px;
+
+  font-family: 'Roboto';
+  color: #616e7c;
+  margin: 0px 20px;
+  padding: 0px;
   @media screen and (min-width: 768px) {
     list-style: none;
     margin-right: 30px;

@@ -100,7 +100,7 @@ const Header = props => {
             {close => (
               <LogoutPopupContent className="modal" bgColor={darkTheme}>
                 <PopupQuestion textColor={darkTheme}>
-                  Are you sure want to logout ?
+                  Are you, sure want to logout
                 </PopupQuestion>
                 <PopupButtonWrapper>
                   <CancelButton
@@ -110,7 +110,7 @@ const Header = props => {
                       close()
                     }}
                   >
-                    Close
+                    Cancel
                   </CancelButton>
                   <PopupLogoutButton onClick={onLogout}>
                     Confirm
@@ -132,6 +132,7 @@ const Header = props => {
                   type="button"
                   onClick={onChangeTheme}
                   textColor={darkTheme}
+                  data-testid="theme"
                 >
                   {themeIcon}
                 </ThemeButton>

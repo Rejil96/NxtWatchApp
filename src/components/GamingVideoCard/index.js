@@ -20,7 +20,7 @@ const GamingVideoCard = props => (
       return (
         <VideoCardContainer>
           <StyledLink to={`/videos/${id}`}>
-            <VideoThumbnail src={thumbnailUrl} alt="videos" />
+            <VideoThumbnail src={thumbnailUrl} alt="video thumbnail" />
             <VideoInfoContainer>
               <ChannelDescriptionContainer>
                 <VideoName textColor={darkTheme}>{title}</VideoName>

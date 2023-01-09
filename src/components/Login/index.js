@@ -38,7 +38,8 @@ class Login extends Component {
     this.setState(prevState => ({passwordVisible: !prevState.passwordVisible}))
   }
 
-  onLogin = async () => {
+  onLogin = async event => {
+    event.preventDefault()
     const {username, password} = this.state
     const userCredentials = {
       username,
@@ -84,8 +85,8 @@ class Login extends Component {
             : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
           return (
             <LoginContainer bgColor={darkTheme}>
-              <LoginCard bgColor={darkTheme}>
-                <CompanyLogo src={Logo} alt="nxt watch logo" />
+              <LoginCard bgColor={darkTheme} onSubmit={this.onLogin}>
+                <CompanyLogo src={Logo} alt="website logo" />
                 <InputControlWrapper textColor={darkTheme}>
                   <InputLabel htmlFor="username" textColor={darkTheme}>
                     USERNAME
@@ -126,9 +127,7 @@ class Login extends Component {
                   </PasswordControlLabel>
                 </PasswordVisibilityControl>
 
-                <LoginButton type="button" onClick={this.onLogin}>
-                  Login
-                </LoginButton>
+                <LoginButton type="submit">Login</LoginButton>
                 {showError && <ErrorMessage>*{errorMsg}</ErrorMessage>}
               </LoginCard>
             </LoginContainer>

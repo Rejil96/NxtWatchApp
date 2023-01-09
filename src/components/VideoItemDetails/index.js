@@ -64,6 +64,10 @@ class VideoItemDetails extends Component {
     this.fetchVideoDetails()
   }
 
+  onRetry = () => {
+    this.fetchVideoDetails()
+  }
+
   fetchVideoDetails = async () => {
     this.setState({isLoad: LoadingState.initial})
     const jwtToken = Cookies.get('jwt_token')
@@ -199,15 +203,17 @@ class VideoItemDetails extends Component {
 
             return (
               <FailureContainer>
-                <FailureImage src={failureImage} alt="failure" />
+                <FailureImage src={failureImage} alt="failure view" />
                 <FailureHeading textColor={darkTheme}>
                   Oops! Something Went Wrong
                 </FailureHeading>
                 <FailureDescription textColor={darkTheme}>
                   We are having some trouble to complete your request. Please
-                  try again
+                  try again.
                 </FailureDescription>
-                <RetryButton type="button">Retry</RetryButton>
+                <RetryButton type="button" onClick={this.onRetry}>
+                  Retry
+                </RetryButton>
               </FailureContainer>
             )
           }
@@ -251,7 +257,9 @@ class VideoItemDetails extends Component {
                       likeStatus={alreadySaved}
                     >
                       <MdPlaylistAdd />
-                      <VideoInfoButtonText>Save</VideoInfoButtonText>
+                      <VideoInfoButtonText>
+                        {alreadySaved ? 'Saved' : 'save'}
+                      </VideoInfoButtonText>
                     </VideoLikeButton>
                   </VideoInfoControls>
                 </VideoInfoControlWrapper>
@@ -299,7 +307,7 @@ class VideoItemDetails extends Component {
               <Header />
               <VideoItemDetailsInnerWrapper>
                 <SideBar />
-                <VideoItemDetailsContentWrapper>
+                <VideoItemDetailsContentWrapper data-testid="videoItemDetails">
                   {renderBasedOnStatus()}
                 </VideoItemDetailsContentWrapper>
               </VideoItemDetailsInnerWrapper>
