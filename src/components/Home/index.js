@@ -233,6 +233,7 @@ class Home extends Component {
                         type="button"
                         bgColor={darkTheme}
                         onClick={this.onClickSearch}
+                        data-testid="SearchButton"
                       >
                         <BiSearchAlt2 />
                       </SearchBoxButton>

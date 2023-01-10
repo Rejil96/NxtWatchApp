@@ -91,7 +91,7 @@ export const VideoLikeButton = styled.button`
     margin-right: 0px;
   }
 `
-export const VideoInfoButtonText = styled.p`
+export const VideoInfoButtonText = styled.span`
   font-size: 16px;
   padding-left: 5px;
 `

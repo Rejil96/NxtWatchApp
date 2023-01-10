@@ -1,7 +1,7 @@
 import {withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 // React Popup
-import 'reactjs-popup/dist/index.css'
+
 import Popup from 'reactjs-popup'
 
 // React Icons
