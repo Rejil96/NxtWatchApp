@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
 
 export const VideoCardContainer = styled.div`
   width: 100%;
@@ -104,7 +103,4 @@ export const ChannelName = styled.p`
   margin: 0px;
   padding-right: 20px;
   color: #616e7c;
-`
-export const StyledLink = styled(Link)`
-  text-decoration: none;
 `

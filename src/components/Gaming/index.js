@@ -16,15 +16,12 @@ import {
   GamingIconContainer,
   GamingVideosWrapper,
   LoaderContainer,
-} from './componentStyle'
-
-import {
   FailureContainer,
   FailureImage,
   FailureHeading,
   FailureDescription,
   RetryButton,
-} from '../Home/componentStyle'
+} from './componentStyle'
 
 const LoadingState = {
   initial: 'INITIAL',
@@ -150,7 +147,7 @@ class Gaming extends Component {
               <Header />
               <GamingInnerWrapper>
                 <SideBar />
-                <GamingContentWrapper data-testid="gaming">
+                <GamingContentWrapper data-testid="gaming" bgColor={darkTheme}>
                   {renderBasedOnStatus()}
                 </GamingContentWrapper>
               </GamingInnerWrapper>

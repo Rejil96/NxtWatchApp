@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -74,10 +73,6 @@ export const MobileNavMenuContainer = styled.ul`
     padding: 0px;
     margin: 0px;
   }
-`
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
 `
 
 export const MobileNavItem = styled.li`

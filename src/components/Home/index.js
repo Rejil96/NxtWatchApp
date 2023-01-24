@@ -168,7 +168,7 @@ class Home extends Component {
                 alt="no videos"
               />
               <FailureHeading textColor={darkTheme}>
-                No Search result found
+                No Search results found
               </FailureHeading>
               <FailureDescription textColor={darkTheme}>
                 Try different key words or remove search filter
@@ -197,7 +197,7 @@ class Home extends Component {
               <Header />
               <HomeInnerWrapper>
                 <SideBar />
-                <HomeContentWrapper data-testid="home">
+                <HomeContentWrapper data-testid="home" bgColor={darkTheme}>
                   {showPremiumBanner && (
                     <PremiumBannerContainer data-testid="banner">
                       <BannerInnerWrapperContent>
@@ -233,7 +233,7 @@ class Home extends Component {
                         type="button"
                         bgColor={darkTheme}
                         onClick={this.onClickSearch}
-                        data-testid="SearchButton"
+                        data-testid="searchButton"
                       >
                         <BiSearchAlt2 />
                       </SearchBoxButton>

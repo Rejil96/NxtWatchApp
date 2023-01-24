@@ -1,4 +1,4 @@
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 import {AiFillHome} from 'react-icons/ai'
 import {HiFire} from 'react-icons/hi'
@@ -12,16 +12,12 @@ import {
   SocialIconContainer,
   SocialIcon,
   ContactDescription,
-} from './componentStyle'
-import ThemeContext from '../../context/ThemeContext'
-
-import {
   MobileNavMenuContainer,
   MobileNavItem,
   MobileNavItemText,
   MobileNavButton,
-  StyledLink,
-} from '../Header/componentStyle'
+} from './componentStyle'
+import ThemeContext from '../../context/ThemeContext'
 
 const SideBar = props => (
   <ThemeContext.Consumer>
@@ -39,7 +35,7 @@ const SideBar = props => (
       return (
         <SideBarContainer bgColor={darkTheme}>
           <MobileNavMenuContainer>
-            <StyledLink to="/">
+            <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>
               <MobileNavItem activeTab={findActiveTab('/')} bgColor={darkTheme}>
                 <MobileNavButton>
                   <AiFillHome />
@@ -51,8 +47,11 @@ const SideBar = props => (
                   </MobileNavItemText>
                 </MobileNavButton>
               </MobileNavItem>
-            </StyledLink>
-            <StyledLink to="/trending">
+            </Link>
+            <Link
+              to="/trending"
+              style={{textDecoration: 'none', color: 'inherit'}}
+            >
               <MobileNavItem
                 activeTab={findActiveTab('/trending')}
                 bgColor={darkTheme}
@@ -67,8 +66,11 @@ const SideBar = props => (
                   </MobileNavItemText>
                 </MobileNavButton>
               </MobileNavItem>
-            </StyledLink>
-            <StyledLink to="/gaming">
+            </Link>
+            <Link
+              to="/gaming"
+              style={{textDecoration: 'none', color: 'inherit'}}
+            >
               <MobileNavItem
                 activeTab={findActiveTab('/gaming')}
                 bgColor={darkTheme}
@@ -83,8 +85,11 @@ const SideBar = props => (
                   </MobileNavItemText>
                 </MobileNavButton>
               </MobileNavItem>
-            </StyledLink>
-            <StyledLink to="/saved-videos">
+            </Link>
+            <Link
+              to="/saved-videos"
+              style={{textDecoration: 'none', color: 'inherit'}}
+            >
               <MobileNavItem
                 activeTab={findActiveTab('/saved-videos')}
                 bgColor={darkTheme}
@@ -99,7 +104,7 @@ const SideBar = props => (
                   </MobileNavItemText>
                 </MobileNavButton>
               </MobileNavItem>
-            </StyledLink>
+            </Link>
           </MobileNavMenuContainer>
           <ContactUsContainer>
             <ContactHeading textColor={darkTheme}>CONTACT US</ContactHeading>

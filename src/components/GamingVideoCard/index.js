@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import ThemeContext from '../../context/ThemeContext'
 
 import {
@@ -7,7 +8,6 @@ import {
   ChannelDescriptionContainer,
   VideoName,
   VideoStatus,
-  StyledLink,
 } from './componentStyle'
 
 const GamingVideoCard = props => (
@@ -19,7 +19,10 @@ const GamingVideoCard = props => (
 
       return (
         <VideoCardContainer>
-          <StyledLink to={`/videos/${id}`}>
+          <Link
+            to={`/videos/${id}`}
+            style={{textDecoration: 'none', color: 'inherit'}}
+          >
             <VideoThumbnail src={thumbnailUrl} alt="video thumbnail" />
             <VideoInfoContainer>
               <ChannelDescriptionContainer>
@@ -27,7 +30,7 @@ const GamingVideoCard = props => (
                 <VideoStatus> {`${viewCount}K `}Watching Worldwide</VideoStatus>
               </ChannelDescriptionContainer>
             </VideoInfoContainer>
-          </StyledLink>
+          </Link>
         </VideoCardContainer>
       )
     }}

@@ -12,14 +12,11 @@ import {
   TrendingHeading,
   TrendingIconContainer,
   TrendingVideosWrapper,
-} from './componentStyle'
-
-import {
   FailureContainer,
   FailureImage,
   FailureHeading,
   FailureDescription,
-} from '../Home/componentStyle'
+} from './componentStyle'
 
 const SavedVideos = () => (
   <ThemeContext.Consumer>
@@ -72,7 +69,10 @@ const SavedVideos = () => (
           <Header />
           <TrendingInnerWrapper>
             <SideBar />
-            <TrendingContentWrapper>
+            <TrendingContentWrapper
+              data-testid="savedVideos"
+              bgColor={darkTheme}
+            >
               {renderBasedOnStatus()}
             </TrendingContentWrapper>
           </TrendingInnerWrapper>

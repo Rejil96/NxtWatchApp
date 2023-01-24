@@ -12,7 +12,7 @@ export const HomeInnerWrapper = styled.div`
 `
 export const HomeContentWrapper = styled.div`
   width: 100%;
-
+  background-color: ${props => (props.bgColor ? '#181818' : '#f9f9f9')};
   overflow-y: auto;
   @media screen and (min-width: 768px) {
     width: 80%;

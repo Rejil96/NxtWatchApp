@@ -1,4 +1,4 @@
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 // React Popup
 
@@ -35,7 +35,6 @@ import {
   MobileNavItem,
   MobileNavItemText,
   MobileNavButton,
-  StyledLink,
   CancelButton,
   LogoutPopupContent,
   PopupQuestion,
@@ -100,13 +99,12 @@ const Header = props => {
             {close => (
               <LogoutPopupContent className="modal" bgColor={darkTheme}>
                 <PopupQuestion textColor={darkTheme}>
-                  Are you, sure want to logout
+                  Are you sure, you want to logout
                 </PopupQuestion>
                 <PopupButtonWrapper>
                   <CancelButton
                     className="button"
                     onClick={() => {
-                      console.log('modal closed ')
                       close()
                     }}
                   >
@@ -123,9 +121,9 @@ const Header = props => {
 
         return (
           <HeaderContainer bgColor={darkTheme}>
-            <StyledLink to="/">
+            <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>
               <HeaderLogo src={logo} alt="website logo" />
-            </StyledLink>
+            </Link>
             <NavBar>
               <NavItem>
                 <ThemeButton
@@ -154,7 +152,10 @@ const Header = props => {
                         <IoCloseSharp />
                       </PopupCloseButton>
                       <MobileNavMenuContainer>
-                        <StyledLink to="/">
+                        <Link
+                          to="/"
+                          style={{textDecoration: 'none', color: 'inherit'}}
+                        >
                           <MobileNavItem
                             activeTab={findActiveTab('/')}
                             bgColor={darkTheme}
@@ -169,8 +170,11 @@ const Header = props => {
                               </MobileNavItemText>
                             </MobileNavButton>
                           </MobileNavItem>
-                        </StyledLink>
-                        <StyledLink to="/trending">
+                        </Link>
+                        <Link
+                          to="/trending"
+                          style={{textDecoration: 'none', color: 'inherit'}}
+                        >
                           <MobileNavItem
                             activeTab={findActiveTab('/trending')}
                             bgColor={darkTheme}
@@ -185,8 +189,11 @@ const Header = props => {
                               </MobileNavItemText>
                             </MobileNavButton>
                           </MobileNavItem>
-                        </StyledLink>
-                        <StyledLink to="/gaming">
+                        </Link>
+                        <Link
+                          to="/gaming"
+                          style={{textDecoration: 'none', color: 'inherit'}}
+                        >
                           <MobileNavItem
                             activeTab={findActiveTab('/gaming')}
                             bgColor={darkTheme}
@@ -201,8 +208,11 @@ const Header = props => {
                               </MobileNavItemText>
                             </MobileNavButton>
                           </MobileNavItem>
-                        </StyledLink>
-                        <StyledLink to="/saved-videos">
+                        </Link>
+                        <Link
+                          to="/saved-videos"
+                          style={{textDecoration: 'none', color: 'inherit'}}
+                        >
                           <MobileNavItem
                             activeTab={findActiveTab('/saved-videos')}
                             bgColor={darkTheme}
@@ -217,7 +227,7 @@ const Header = props => {
                               </MobileNavItemText>
                             </MobileNavButton>
                           </MobileNavItem>
-                        </StyledLink>
+                        </Link>
                       </MobileNavMenuContainer>
                     </PopupContents>
                   )}

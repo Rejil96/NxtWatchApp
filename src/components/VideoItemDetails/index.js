@@ -19,6 +19,7 @@ import {
   VideoInfoControlWrapper,
   VideoInfoControls,
   VideoLikeButton,
+  VideoDislikeButton,
   VideoInfoButtonText,
   VideoChannelDescription,
   ChannelLogoDescription,
@@ -27,21 +28,15 @@ import {
   ChannelNameText,
   SubscribersText,
   ChannelDescription,
-} from './componentStyle'
-
-import {
   FailureContainer,
   FailureImage,
   FailureHeading,
   FailureDescription,
   RetryButton,
-} from '../Home/componentStyle'
-
-import {
   VideoStatusWrapper,
   VideoStatusFirst,
   VideoStatus,
-} from '../HomeVideoCard/componentStyle'
+} from './componentStyle'
 
 import Header from '../Header'
 import SideBar from '../SideBar'
@@ -243,14 +238,14 @@ class VideoItemDetails extends Component {
                       <BiLike />
                       <VideoInfoButtonText>Like</VideoInfoButtonText>
                     </VideoLikeButton>
-                    <VideoLikeButton
+                    <VideoDislikeButton
                       type="button"
                       onClick={onDisLike}
-                      likeStatus={disLike}
+                      disLikeStatus={disLike}
                     >
                       <BiDislike />
                       <VideoInfoButtonText>Dislike</VideoInfoButtonText>
-                    </VideoLikeButton>
+                    </VideoDislikeButton>
                     <VideoLikeButton
                       type="button"
                       onClick={onClickSave}
@@ -307,7 +302,10 @@ class VideoItemDetails extends Component {
               <Header />
               <VideoItemDetailsInnerWrapper>
                 <SideBar />
-                <VideoItemDetailsContentWrapper data-testid="videoItemDetails">
+                <VideoItemDetailsContentWrapper
+                  data-testid="videoItemDetails"
+                  bgColor={darkTheme}
+                >
                   {renderBasedOnStatus()}
                 </VideoItemDetailsContentWrapper>
               </VideoItemDetailsInnerWrapper>

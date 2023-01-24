@@ -16,15 +16,12 @@ import {
   TrendingIconContainer,
   TrendingVideosWrapper,
   LoaderContainer,
-} from './componentStyle'
-
-import {
   FailureContainer,
   FailureImage,
   FailureHeading,
   FailureDescription,
   RetryButton,
-} from '../Home/componentStyle'
+} from './componentStyle'
 
 const LoadingState = {
   initial: 'INITIAL',
@@ -156,7 +153,10 @@ class Trending extends Component {
               <Header />
               <TrendingInnerWrapper>
                 <SideBar />
-                <TrendingContentWrapper data-testid="trending">
+                <TrendingContentWrapper
+                  data-testid="trending"
+                  bgColor={darkTheme}
+                >
                   {renderBasedOnStatus()}
                 </TrendingContentWrapper>
               </TrendingInnerWrapper>

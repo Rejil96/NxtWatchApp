@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import {formatDistanceToNow} from 'date-fns'
 import ThemeContext from '../../context/ThemeContext'
 
@@ -13,7 +14,6 @@ import {
   VideoStatusContainer,
   ChannelName,
   VideoStatusFirst,
-  StyledLink,
 } from './componentStyle'
 
 const TrendingVideoCard = props => (
@@ -30,13 +30,16 @@ const TrendingVideoCard = props => (
         viewCount,
       } = videoData
       const {name, profileImageUrl} = channel
-      console.log(publishedAt)
+
       const dateText = formatDistanceToNow(new Date(publishedAt))
       const dateArray = dateText.split(' ').slice(1, 3)
       const dateString = dateArray.join(' ')
 
       return (
-        <StyledLink to={`videos/${id}`}>
+        <Link
+          to={`videos/${id}`}
+          style={{textDecoration: 'none', color: 'inherit'}}
+        >
           <VideoCardContainer>
             <VideoThumbnail src={thumbnailUrl} alt="video thumbnail" />
             <VideoInfoContainer>
@@ -53,7 +56,7 @@ const TrendingVideoCard = props => (
               </ChannelDescriptionContainer>
             </VideoInfoContainer>
           </VideoCardContainer>
-        </StyledLink>
+        </Link>
       )
     }}
   </ThemeContext.Consumer>

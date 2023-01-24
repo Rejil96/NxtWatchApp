@@ -18,6 +18,7 @@ export const VideoItemDetailsContentWrapper = styled.div`
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+  background-color: ${props => (props.bgColor ? '#0f0f0f' : '#f9f9f9')};
 
   @media screen and (min-width: 768px) {
     width: 80%;
@@ -34,11 +35,15 @@ export const VideoPlayerContainer = styled.div`
   }
 `
 export const LoaderContainer = styled.div`
-  width: 80%;
+  width: 100%;
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    width: 80%;
+  }
 `
 export const VideoDescriptionContainer = styled.div`
   width: 100%;
@@ -78,7 +83,7 @@ export const VideoLikeButton = styled.button`
   align-items: center;
   margin-right: 30px;
   background-color: transparent;
-  color: ${props => (props.likeStatus ? '#2563eb' : '#616e7c')};
+  color: ${props => (props.likeStatus ? '#2563eb' : '#64748b')};
   padding: 0px;
   border: none;
   cursor: pointer;
@@ -91,6 +96,25 @@ export const VideoLikeButton = styled.button`
     margin-right: 0px;
   }
 `
+export const VideoDislikeButton = styled.button`
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  background-color: transparent;
+  color: ${props => (props.disLikeStatus ? '#2563eb' : '#64748b')};
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  background-color: none;
+  outline: none;
+  font-size: 22px;
+  padding-top: 10px;
+  @media screen and (min-width: 768px) {
+    margin-left: 20px;
+    margin-right: 0px;
+  }
+`
+
 export const VideoInfoButtonText = styled.span`
   font-size: 16px;
   padding-left: 5px;
@@ -131,4 +155,104 @@ export const ChannelDescription = styled.p`
   color: ${props => (props.textColor ? '#f8fafc' : '#424242')};
   padding: 0px 20px 40px 20px;
   line-height: 24px;
+`
+export const FailureContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    min-height: 100vh;
+  }
+`
+export const FailureImage = styled.img`
+  width: 60%;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 40%;
+  }
+`
+
+export const FailureHeading = styled.h1`
+  font-family: 'Roboto';
+  font-size: 22px;
+  color: ${props => (props.textColor ? '#f8fafc' : '#1e293b')};
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+  }
+`
+
+export const FailureDescription = styled.p`
+  font-family: 'Roboto';
+  font-size: 16px;
+  text-align: center;
+  color: #475569;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+`
+export const RetryButton = styled.button`
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-family: 'Roboto';
+  cursor: pointer;
+  color: #f8fafc;
+  background-color: #4f46e5;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 120px;
+  }
+`
+export const VideoStatusWrapper = styled.ul`
+  width: 100%;
+  padding-left: 0px;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  align-items: center;
+  margin: 20px 0px;
+
+  @media screen and (min-width: 768px) {
+    margin: 20px 0px;
+  }
+`
+
+export const VideoStatus = styled.p`
+  font-size: 14px;
+
+  font-family: 'Roboto';
+  color: #616e7c;
+  margin: 0px 20px;
+  padding: 0px;
+  @media screen and (min-width: 768px) {
+    margin: 0px;
+  }
+`
+export const VideoStatusFirst = styled.p`
+  font-size: 14px;
+
+  font-family: 'Roboto';
+  color: #616e7c;
+  margin: 0px 20px;
+  padding: 0px;
+  margin-left: 0px;
+  @media screen and (min-width: 768px) {
+    list-style: none;
+    margin-right: 30px;
+  }
 `

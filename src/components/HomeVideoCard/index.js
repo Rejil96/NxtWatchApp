@@ -1,4 +1,5 @@
 import {formatDistanceToNow} from 'date-fns'
+import {Link} from 'react-router-dom'
 import ThemeContext from '../../context/ThemeContext'
 
 import {
@@ -13,7 +14,6 @@ import {
   VideoStatusContainer,
   ChannelName,
   VideoStatusFirst,
-  StyledLink,
 } from './componentStyle'
 
 const HomeVideoCard = props => (
@@ -36,7 +36,10 @@ const HomeVideoCard = props => (
 
       return (
         <VideoCardContainer>
-          <StyledLink to={`/videos/${id}`}>
+          <Link
+            to={`/videos/${id}`}
+            style={{textDecoration: 'none', color: 'inherit'}}
+          >
             <VideoThumbnail src={thumbnailUrl} alt="video thumbnail" />
             <VideoInfoContainer>
               <ChannelLogo src={profileImageUrl} alt="channel logo" />
@@ -51,7 +54,7 @@ const HomeVideoCard = props => (
                 </VideoStatusContainer>
               </ChannelDescriptionContainer>
             </VideoInfoContainer>
-          </StyledLink>
+          </Link>
         </VideoCardContainer>
       )
     }}

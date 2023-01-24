@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import {formatDistanceToNow} from 'date-fns'
 import ThemeContext from '../../context/ThemeContext'
 
@@ -13,7 +14,6 @@ import {
   VideoStatusContainer,
   ChannelName,
   VideoStatusFirst,
-  StyledLink,
 } from './componentStyle'
 
 const SavedVideoCard = props => (
@@ -36,7 +36,10 @@ const SavedVideoCard = props => (
       const dateString = dateArray.join(' ')
 
       return (
-        <StyledLink to={`videos/${id}`}>
+        <Link
+          to={`videos/${id}`}
+          style={{textDecoration: 'none', color: 'inherit'}}
+        >
           <VideoCardContainer>
             <VideoThumbnail src={thumbnailUrl} alt="video thumbnail" />
             <VideoInfoContainer>
@@ -53,7 +56,7 @@ const SavedVideoCard = props => (
               </ChannelDescriptionContainer>
             </VideoInfoContainer>
           </VideoCardContainer>
-        </StyledLink>
+        </Link>
       )
     }}
   </ThemeContext.Consumer>
